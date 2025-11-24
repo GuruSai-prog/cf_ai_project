@@ -90,7 +90,9 @@ export default {
   async fetch(request: Request, env: Env, _ctx: ExecutionContext) {
     const url = new URL(request.url);
 
-    // health check
+   
+
+
 if (url.pathname === "/check-open-ai-key") {
   const hasKey = Boolean(env.OPENAI_API_KEY);
   return Response.json({ success: hasKey });
@@ -108,21 +110,21 @@ if (url.pathname === "/check-open-ai-key") {
     //   const msg = await ingestFaq(env);
     //   return new Response(msg);
     // }
-     if (url.pathname === "/admin/ingest-faq" && request.method === "POST") {
-      const token = url.searchParams.get("token");
+    if (url.pathname === "/admin/ingest-faq" && request.method === "POST") {
+    const token = url.searchParams.get("token");
 
-      if (token !== env.INGEST_TOKEN) {
-        return new Response("Unauthorized", { status: 401 });
-      }
-
-      try {
-        const msg = await ingestFaq(env);
-        return new Response(msg, { status: 200 });
-      } catch (err) {
-        console.error("Error ingesting FAQ:", err);
-        return new Response("Error ingesting FAQ", { status: 500 });
-      }
+    if (token !== env.INGEST_TOKEN) {
+      return new Response("Unauthorized", { status: 401 });
     }
+
+    try {
+      const msg = await ingestFaq(env);
+      return new Response(msg, { status: 200 });
+    } catch (err) {
+      console.error("Error ingesting FAQ:", err);
+      return new Response("Error ingesting FAQ", { status: 500 });
+    }
+  }
 
 
     return (

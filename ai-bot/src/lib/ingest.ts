@@ -25,7 +25,7 @@ export async function ingestFaq(env: Env) {
         input: texts
       })
     });
-
+console.log(`Received embeddings for batch ${i / batchSize + 1}.`);
     // parse and validate response
     const embedJson = (await embeddingResponse.json()) as { data: { embedding: number[] }[] } ;
     const vectors = embedJson.data;
@@ -39,7 +39,7 @@ export async function ingestFaq(env: Env) {
         answer: item.answer
       }
     }));
-
+console.log(`Upserting batch ${i / batchSize + 1} into Vectorize...`);
     // 3) insert into Vectorize
     await env.VECTORIZE.upsert(vectorPayload);
   }
