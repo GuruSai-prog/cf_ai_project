@@ -1,5 +1,3 @@
 # OPENAI_API_KEY=sk-proj-1234567890
 # Optional - Cloudflare AI Gateway https://developers.cloudflare.com/ai-gateway/
 # GATEWAY_BASE_URL=https://gateway.ai.cloudflare.com/v1/..
-OPENAI_API_KEY = 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
-MY_SECRET_TOKEN=abcd
