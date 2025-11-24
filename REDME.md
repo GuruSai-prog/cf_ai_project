@@ -1,9 +1,3 @@
-Here is a **clean, simple, professional README.md** tailored for your Cloudflare project using **Workers + Vectorize + OpenAI**.
-It is **easy to understand**, explains **how to run the code**, and meets the **cf_ai_ project requirements**.
-
-You can copy-paste this as **README.md**.
-
----
 
 # 📘 FAQ Search Chatbot (Cloudflare Workers + Vectorize + OpenAI)
 
